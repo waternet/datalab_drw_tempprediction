@@ -68,8 +68,15 @@ def combine_data():
 
 def plot_them_all():
     data = pd.read_csv('data/combined_data.csv')
-    data.reset_index().plot(x='index', y=TAGS[:])
-    plt.show()
+    data = data.reset_index()
+    data.plot(x='index', y=TAGS[:], figsize=(15,10))
+    plt.savefig("img/all.png")
+
+    data.plot(x='index', y=TAGS_NIEUWEGEIN, figsize=(15,10))
+    plt.savefig("img/nieuwegein.png")
+
+    data.plot(x='index', y=TAGS_LEIDUIN, figsize=(15,10))
+    plt.savefig("img/leiduin.png")
 
 if __name__=="__main__":
     get = raw_input("Data ophalen? (j/n): ")

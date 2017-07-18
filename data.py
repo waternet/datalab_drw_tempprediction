@@ -32,6 +32,7 @@ TAGS = [
 
 TAGS_NIEUWEGEIN = TAGS[0:5]
 TAGS_LEIDUIN = TAGS[8:11]
+TAGS_OUTPUT = TAGS[11:]
 
 def get_data():
     """Haal de data op uit de PIMS database en sla het op in individuele
@@ -62,6 +63,8 @@ def combine_data():
     for i in range(0, len(csvfiles)):
         columnname = csvfiles[i].split('/')[1][:-22] #22 is the amount of space used by the dates
         df = pd.read_csv(csvfiles[i])
+        if i==0:
+            result['datum'] = df.ix[:,-2:-1]
         result[columnname] = df.ix[:,-1:]
 
     result.to_csv('data/combined_data.csv')

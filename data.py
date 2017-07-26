@@ -5,7 +5,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 #importing the pims module requires adding the following module to the python path
-sys.path.append("/home/waternet/programmeren/python/datalab/datalab_drw_pims")
+sys.path.append("/home/breinbaas/programmeren/python/datalab/datalab_drw_pims")
 
 import wnpims
 
@@ -83,7 +83,7 @@ def plot_them_all():
 
 if __name__=="__main__":
     get = raw_input("Data ophalen? (j/n): ")
-    if get == 'J':
+    if get == 'j':
         get_data()
     combine_data()
     plot_them_all()
